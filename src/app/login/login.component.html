@@ -1,6 +1,5 @@
 <div style="text-align:center">
   <h2>LOGIN PAGE WORKS</h2>
-  <p>login works!</p>
 </div>
 
 <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
@@ -17,3 +16,4 @@
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   </div>
 </form>
+<a (click)="logout()">Logout</a>

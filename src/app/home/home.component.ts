@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {AuthenticationService} from '../_services/auth.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor( private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
+    let currentUser = this.authenticationService.currentUserValue;
+    console.log("aa" + JSON.stringify(currentUser));
   }
 
 }

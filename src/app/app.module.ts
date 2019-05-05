@@ -7,6 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import {JwtModule} from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
+
 
 @NgModule({
   declarations: [
@@ -18,9 +26,16 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['example.com'],
+        blacklistedRoutes: ['example.com/examplebadroute/']
+      }
+    })
   ],
-  providers: [],
+  providers: [JwtHelperService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
