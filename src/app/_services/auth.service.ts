@@ -11,8 +11,9 @@ import { map } from 'rxjs/operators';
 export class AuthenticationService {
 	private _loginUrl = "http://localhost:1337/auth/local";
 	private _registerUrl = "http://localhost:1337/auth/local/register";
-	
+
 	isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
+	loginUserData = { identifier: '', password: '' };
 
 	constructor(
 		private http: HttpClient,
@@ -24,15 +25,10 @@ export class AuthenticationService {
 	}
 
 	login(form: NgForm) {
-		let credentials = JSON.stringify(form.value);
+		let credentials = form.value;
 
-		console.log(form.value);
 		this.http.post(this._loginUrl, credentials,
-			{
-				headers: new HttpHeaders({
-					"Content-Type": "application/json"
-				})
-			})
+		)
 			.subscribe(res => {
 				console.log(res);
 				localStorage.setItem("jwt", (<any>res).jwt);
