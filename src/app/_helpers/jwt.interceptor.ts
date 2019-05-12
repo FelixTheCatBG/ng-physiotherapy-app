@@ -20,7 +20,7 @@ export class JwtInterceptor implements HttpInterceptor {
                 setHeaders: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
-                    
+
                 }
             });
         }

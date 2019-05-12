@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this.authenticationService.registerUser(this.registerUserData)
       .subscribe(
-        res => {         
+        res => {
           localStorage.setItem('token', res.jwt)
           this.authenticationService.isLoggedInSubject.next(true);
           this.router.navigate(["/"]);

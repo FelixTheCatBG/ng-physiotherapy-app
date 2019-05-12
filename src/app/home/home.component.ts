@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {AuthenticationService} from '../_services/auth.service';
+import { AuthenticationService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import {AuthenticationService} from '../_services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     // let currentUser = this.authenticationService.getLoggedInValue;

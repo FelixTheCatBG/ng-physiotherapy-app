@@ -8,7 +8,7 @@ import { AuthenticationService } from './_services/auth.service';
 })
 export class AppComponent {
   title = 'ng-physiotherapy-app';
-  
+
   private isLoggedIn: boolean;
 
   constructor(

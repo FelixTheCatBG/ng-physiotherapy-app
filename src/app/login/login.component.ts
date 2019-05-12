@@ -12,6 +12,7 @@ import { AuthenticationService } from '../_services/auth.service';
 	styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
 	constructor(
 		private router: Router,
 		private http: HttpClient,

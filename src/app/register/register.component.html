@@ -12,15 +12,18 @@
           <form class="form">
             <div class="form-group">
               <label for="uname1">email</label>
-              <input type="text" [(ngModel)]="registerUserData.email" name="email" class="form-control rounded-0" required>
+              <input type="text" [(ngModel)]="registerUserData.email" name="email" class="form-control rounded-0"
+                required>
             </div>
             <div class="form-group">
               <label>username</label>
-              <input type="text" [(ngModel)]="registerUserData.username" name="username" class="form-control rounded-0"  required>
+              <input type="text" [(ngModel)]="registerUserData.username" name="username" class="form-control rounded-0"
+                required>
             </div>
             <div class="form-group">
               <label>Password</label>
-              <input type="password" [(ngModel)]="registerUserData.password" name="password" class="form-control rounded-0"  required>
+              <input type="password" [(ngModel)]="registerUserData.password" name="password"
+                class="form-control rounded-0" required>
             </div>
             <button type="button" (click)="registerUser()" class="btn btn-primary float-right">Register</button>
           </form>
