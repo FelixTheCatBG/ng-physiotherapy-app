@@ -20,5 +20,6 @@ export class AppComponent {
       .subscribe(value => {
         this.isLoggedIn = value;
       });
+
   }
 }
