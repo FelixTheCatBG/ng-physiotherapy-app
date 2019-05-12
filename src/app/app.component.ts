@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {AuthenticationService} from './_services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from './_services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +8,17 @@ import {AuthenticationService} from './_services/auth.service';
 })
 export class AppComponent {
   title = 'ng-physiotherapy-app';
-  private userLoggedIn: boolean;
   
+  private isLoggedIn: boolean;
 
-  constructor( 
+  constructor(
     private authenticationService: AuthenticationService
-    ){
-   this.authenticationService.getLoggedIn().subscribe(value => {
-     this.userLoggedIn = value;
-    });
+  ) { }
+
+  ngOnInit() {
+    this.authenticationService.isLoggedIn()
+      .subscribe(value => {
+        this.isLoggedIn = value;
+      });
   }
- 
 }

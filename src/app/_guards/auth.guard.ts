@@ -5,11 +5,11 @@ import { CanActivate, Router } from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-
-  constructor(
+  
+  constructor (
     private router: Router, 
     private jwtHelper: JwtHelperService
-  ) { }
+  ) { }   
 
   canActivate() {
     let token = localStorage.getItem("jwt");
