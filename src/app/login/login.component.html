@@ -1,24 +1,38 @@
 <div class="py-5">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-
-      <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-        <div class="container-fluid">
-          <h2 class="form-signin-heading">Login</h2>
-          <!-- <div class="alert alert-danger">Invalid username or password.</div> -->
-          <br />
-          <label for="username" class="sr-only">Email address</label>
-          <input type="email" id="username" name="identifier" ngModel class="form-control" placeholder="User Name"
-            required autofocus>
-          <br />
-          <label for="password" class="sr-only">Password</label>
-          <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password"
-            required>
-          <br />
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>
+  
+        <!-- form  login -->
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Login</h3>
+          </div>
+          <div class="card-body">
+            <form class="form">
+              <div>
+                <label for="email">Name</label><br>
+                <input required type="text" [(ngModel)]="loginUserData.identifier"  name="email" id="email" #email="ngModel" class="form-control rounded-0"
+                  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" />
+                <p *ngIf="!email.valid && email.dirty"> Please enter a valid email</p>
+              </div>
+              <div>
+                <label for="email">Password</label><br>
+                <input required type="password" [(ngModel)]="loginUserData.password"  name="password" id="password" #password="ngModel" class="form-control rounded-0"
+                  pattern="^[a-zA-Z0-9_-]{8,15}$" />
+                <p *ngIf="!password.valid && password.dirty"> Please enter a valid password</p>
+              </div>
+              <p>
+                <button type="button" (click)="loginUser()" class="btn btn-primary float-right"
+                  >Login</button>
+            </form>
+          </div>
+          <!--/block-->
         </div>
-      </form>
-
+        <!-- /form  login -->
+  
+      </div>
+  
+  
     </div>
   </div>
-</div>

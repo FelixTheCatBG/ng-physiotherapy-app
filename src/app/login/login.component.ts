@@ -13,6 +13,8 @@ import { AuthenticationService } from '../_services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+	loginUserData = {identifier:'',password:''}
+	
 	constructor(
 		private router: Router,
 		private http: HttpClient,
@@ -25,9 +27,20 @@ export class LoginComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	login(form: NgForm) {
-		this.authenticationService.login(form);
-	}
+	loginUser() {
+		this.authenticationService.loginUser(this.loginUserData)
+		  .subscribe(
+			res => {
+				console.log(res);
+				localStorage.setItem("jwt", (<any>res).jwt);
+				this.authenticationService.isLoggedInSubject.next(true);
+				this.router.navigate(["/"]);
+			},
+			err => {
+				this.authenticationService.isLoggedInSubject.next(false);
+				console.log(err);
+			});
+	  }
 
 	logout() {
 		this.authenticationService.logout();
