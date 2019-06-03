@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
+	
 	private _loginUrl = "http://localhost:1337/auth/local";
 	private _registerUrl = "http://localhost:1337/auth/local/register";
 
@@ -39,7 +40,6 @@ export class AuthenticationService {
 				console.log(err);
 			});
 	}
-
 
 	registerUser(user) {
 		return this.http.post<any>(this._registerUrl, user)

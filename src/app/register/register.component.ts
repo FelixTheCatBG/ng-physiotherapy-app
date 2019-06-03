@@ -14,20 +14,21 @@ export class RegisterComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
-  ) { }
+  ) {  this.authenticationService.logout();}
 
   ngOnInit() {
-    this.authenticationService.logout();
+   
   }
 
   registerUser() {
     this.authenticationService.registerUser(this.registerUserData)
       .subscribe(
-        res => {
+        res => {          
+          console.log(res)
           localStorage.setItem('token', res.jwt)
           this.authenticationService.isLoggedInSubject.next(true);
+          console.log(this.authenticationService.isLoggedIn());
           this.router.navigate(["/"]);
-          console.log(res)
         },
         err => console.log(err)
       )
