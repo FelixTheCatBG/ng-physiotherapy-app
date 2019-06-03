@@ -1,23 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="isLoggedIn">
-  <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/">Home</a>
-      <a class="nav-item nav-link" routerLink="/login">Logout</a>
-  </div>
-</nav> -->
-
 <div style="text-align:center">
-
   <ul *ngIf="isLoggedIn">
     <li><a routerLink="/">Home</a></li>
     <li><a routerLink="/login">Logout</a></li>
   </ul>
-
-
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
 </div>
 
 <router-outlet></router-outlet>
