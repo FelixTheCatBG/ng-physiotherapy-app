@@ -25,20 +25,8 @@ export class AuthenticationService {
 		return this.isLoggedInSubject.asObservable();
 	}
 
-	login(form: NgForm) {
-		let credentials = form.value;
-
-		this.http.post(this._loginUrl, credentials,
-		)
-			.subscribe(res => {
-				console.log(res);
-				localStorage.setItem("jwt", (<any>res).jwt);
-				this.isLoggedInSubject.next(true);
-				this.router.navigate(["/"]);
-			}, err => {
-				this.isLoggedInSubject.next(false);
-				console.log(err);
-			});
+	loginUser(user) {
+		return this.http.post<any>(this._loginUrl, user)
 	}
 
 	registerUser(user) {
