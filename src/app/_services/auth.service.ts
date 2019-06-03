@@ -14,7 +14,6 @@ export class AuthenticationService {
 	private _registerUrl = "http://localhost:1337/auth/local/register";
 
 	isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
-	loginUserData = { identifier: '', password: '' };
 
 	constructor(
 		private http: HttpClient,
