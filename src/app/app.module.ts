@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
+ 
 
 @NgModule({
   declarations: [
