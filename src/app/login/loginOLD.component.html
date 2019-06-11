@@ -1,0 +1,39 @@
+<!-- Vasils bootstrap login -->
+<div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>
+  
+        <!-- form  login -->
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Login</h3>
+          </div>
+          <div class="card-body">
+            <form class="form">
+              <div>
+                <label for="email">Name</label><br>
+                <input required type="text" [(ngModel)]="loginUserData.identifier"  name="email" id="email" #email="ngModel" class="form-control rounded-0"
+                  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" />
+                <p *ngIf="!email.valid && email.dirty"> Please enter a valid email</p>
+              </div>
+              <div>
+                <label for="email">Password</label><br>
+                <input required type="password" [(ngModel)]="loginUserData.password"  name="password" id="password" #password="ngModel" class="form-control rounded-0"
+                  pattern="^[a-zA-Z0-9_-]{8,15}$" />
+                <p *ngIf="!password.valid && password.dirty"> Please enter a valid password</p>
+              </div>
+              <p>
+                <button type="button" (click)="loginUser()" class="btn btn-primary float-right"
+                  >Login</button>
+            </form>
+          </div>
+          <!--/block-->
+        </div>
+        <!-- /form  login -->
+  
+      </div>
+  
+  
+    </div>
+  </div>
