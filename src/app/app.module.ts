@@ -13,6 +13,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RegisterComponent } from './register/register.component';
+import { FooterComponent } from './footer/footer.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -24,7 +25,8 @@ export function tokenGetter() {
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
