@@ -14,6 +14,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
+import { TrainingComponent } from './training/training.component';
+import { TrainingexercisebankComponent } from './training/trainingexercisebank/trainingexercisebank.component';
+import { TrainingsingleexerciseComponent } from './training/trainingsingleexercise/trainingsingleexercise.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { DailyexercisesComponent } from './dailyexercises/dailyexercises.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -26,7 +31,12 @@ export function tokenGetter() {
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    TrainingComponent,
+    TrainingexercisebankComponent,
+    TrainingsingleexerciseComponent,
+    CalendarComponent,
+    DailyexercisesComponent
   ],
   imports: [
     BrowserModule,
