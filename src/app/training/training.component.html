@@ -8,8 +8,8 @@
     <div class="col-md-4 mb-3" *ngFor="let exercise of exercisesArray">
       <div class="card text-center">
         <div class="card-body"> 
-          <h5 class="card-title">Exercise Name: {{exercise.name}}</h5>
-          <p class="card-text">Exercise Description: {{exercise.description}}</p> 
+          <h5 class="card-title">Exercise Name: {{exercise.exercise.name}}</h5>
+          <p class="card-text">Exercise Description: {{exercise.exercise.description}}</p> 
           <a href="#" class="btn btn-primary">Select</a>
         </div>   
       </div>

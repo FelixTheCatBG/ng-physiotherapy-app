@@ -25,7 +25,7 @@ export class TrainingComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getExercises();
+    this.getMyExercises();
   }
 
   getUser() {
@@ -39,8 +39,8 @@ export class TrainingComponent implements OnInit {
       )
   }
 
-  getExercises(){
-    this._exercise.getExercises()
+  getMyExercises(){
+    this._exercise.getMyExercises()
     .subscribe(
         res => {
           this.exercisesArray = res;       
