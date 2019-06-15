@@ -19,6 +19,7 @@ import { TrainingexercisebankComponent } from './training/trainingexercisebank/t
 import { TrainingsingleexerciseComponent } from './training/trainingsingleexercise/trainingsingleexercise.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { DailyexercisesComponent } from './dailyexercises/dailyexercises.component';
+import { HeaderComponent } from './header/header.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -36,7 +37,8 @@ export function tokenGetter() {
     TrainingexercisebankComponent,
     TrainingsingleexerciseComponent,
     CalendarComponent,
-    DailyexercisesComponent
+    DailyexercisesComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
