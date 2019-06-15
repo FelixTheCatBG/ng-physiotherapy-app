@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dailyexercises',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dailyexercises.component.css']
 })
 export class DailyexercisesComponent implements OnInit {
-
+  @Input() exArray : [];
+  
   constructor() { }
 
   ngOnInit() {
