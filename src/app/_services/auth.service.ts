@@ -12,6 +12,7 @@ export class AuthenticationService {
 	
 	private _loginUrl = "http://localhost:1337/auth/local";
 	private _registerUrl = "http://localhost:1337/auth/local/register";
+	private _getme = "http://localhost:1337/users/me";
 
 	isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
 	loginUserData = { identifier: '', password: '' };
@@ -32,6 +33,10 @@ export class AuthenticationService {
 	registerUser(user) {
 		return this.http.post<any>(this._registerUrl, user)
 	}
+
+	getUser() {
+        return this.http.get<any>(this._getme)
+    }
 
 	logout() {
 		localStorage.removeItem('jwt');

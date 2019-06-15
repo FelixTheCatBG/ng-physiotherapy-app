@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../_services/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpHeaders } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
+import { ExerciseService } from '../_services/exercises.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +14,41 @@ import { AuthenticationService } from '../_services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  user = {username:''};
+  registerExerciseData = {user:'',timestamp:'',rate:1,description:''};
+
+  constructor (
+    private authenticationService: AuthenticationService,
+    private _exercise: ExerciseService,
+    private _router: Router
+    ) { }
 
   ngOnInit() {
-    // let currentUser = this.authenticationService.getLoggedInValue;
-    // console.log("aa" + JSON.stringify(currentUser));
+    //get user detailes
+      this.getUser();
+      //get my exercsises 
+      this.getExercises();
   }
 
+  getUser() {
+    this.authenticationService.getUser()
+      .subscribe(
+        res => {
+          this.user.username = res.username
+          console.log(res.username)
+        },
+        err => console.log(err)
+      )
+  }
+
+  getExercises(){
+    this._exercise.getExercises()
+    .subscribe(
+        res => {       
+          console.log(res)
+        },
+        err => console.log(err)
+      )
+  }
+ 
 }
