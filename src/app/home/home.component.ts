@@ -15,7 +15,7 @@ import { ExerciseService } from '../_services/exercises.service';
 export class HomeComponent implements OnInit {
 
   user = {username:''};
-  registerExerciseData = {user:'',timestamp:'',rate:1,description:''};
+  registerExerciseData = {exercise:'',user:''};
 
   constructor (
     private authenticationService: AuthenticationService,
@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit {
       this.getUser();
       //get my exercsises 
       this.getExercises();
+
+      // this.getExerciseById(id)
   }
 
   getUser() {

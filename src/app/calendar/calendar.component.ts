@@ -15,8 +15,7 @@ export class CalendarComponent implements OnInit {
   exercisesArray = [];
 
   constructor(
-    private _calendar: CalendarService,
-    private _exercise: ExerciseService,
+    private _calendar: CalendarService,  
     private _router: Router
   ) { }
 
