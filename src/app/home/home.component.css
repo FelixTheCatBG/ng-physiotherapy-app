@@ -1,9 +1,12 @@
 #test{
     background-image: linear-gradient(to right bottom, #ff5050, #ff6652, #ff7856, #ff895d, #ff9966);
-    border-radius: 0 0 30% 30%;
-    height: 269px;
+    border-radius: 0 0 5% 5%;
+    height: 35vh;
 }
 
+#main-graphic {
+    margin-top: -15vh;
+}
 
 #main-color {
     /* background: linear-gradient(to right bottom, #ff5050, #ff6652, #ff7856, #ff895d, #ff9966); */
