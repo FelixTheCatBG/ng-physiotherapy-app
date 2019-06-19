@@ -1,3 +1,28 @@
 <p>
-  calendar works!
+  calendar works! Something new
 </p>
+
+<div class="row mt-5">
+    <div class="col-md-4 mb-3" *ngFor="let calendardate of calendarArray">
+      <div class="card text-center">
+        <div class="card-body"> 
+          <h5 class="card-title">Date: {{ calendardate.date | date:'shortDate' }}</h5>
+          <p class="card-text">Comment: {{calendardate.comment}}</p>
+          <p class="card-text">PainScale: {{ calendardate.painscale }}</p> 
+          <a href="" class="btn btn-primary">Select</a>   
+        
+          <app-dailyexercises [exArray]="calendardate.exercisedailydiaries"></app-dailyexercises>  
+<!--           
+          <div class="row mt-5">
+              <div class="col-md-4 mb-3" *ngFor="let ex of calendardate.exercisedailydiaries">
+                <p class="card-text">Sets: {{ ex.sets }}</p> 
+                <p class="card-text">Reps: {{ ex.reps }}</p>
+                <p class="card-text">Occurance: {{ ex.occurance }}</p>
+                <p class="card-text">Done: {{ ex.done }}</p>  
+              </div>
+            </div>          -->
+
+        </div>   
+      </div>
+    </div>
+</div>
