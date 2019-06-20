@@ -27,19 +27,23 @@ const routes: Routes = [
   },
   {
     path: 'myexercises',
-    component: TrainingComponent 
+    component: TrainingComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'exercises',
-    component:  TrainingexercisebankComponent
+    component:  TrainingexercisebankComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'calendar',
-    component: CalendarComponent
+    component: CalendarComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'dailyexercises',
-    component: DailyexercisesComponent
+    component: DailyexercisesComponent,
+    canActivate: [AuthGuard]
   },
 
   // otherwise redirect to home

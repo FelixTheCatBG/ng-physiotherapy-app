@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class CalendarService {
 	
-	private _getCalendar = "http://localhost:1337/exercisediaries";
+	private _getCalendar = "http://localhost:1337/exercisediaries?_sort=date:DESC";
     private _getMyExercises = "http://localhost:1337/myexercises";   
    
 
