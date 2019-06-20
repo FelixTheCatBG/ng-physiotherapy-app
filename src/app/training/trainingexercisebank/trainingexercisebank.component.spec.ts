@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TrainingexercisebankComponent } from './trainingexercisebank.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('TrainingexercisebankComponent', () => {
   let component: TrainingexercisebankComponent;
@@ -8,7 +11,8 @@ describe('TrainingexercisebankComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TrainingexercisebankComponent ]
+      declarations: [ TrainingexercisebankComponent ],
+      imports: [FormsModule, RouterTestingModule, HttpClientModule],
     })
     .compileComponents();
   }));
