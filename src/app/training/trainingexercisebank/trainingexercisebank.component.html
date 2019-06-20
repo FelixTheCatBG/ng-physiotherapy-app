@@ -1,8 +1,4 @@
-<p>
-  trainingexercisebank works!
-</p>
-
-<div class="row mt-5">
+<!-- <div class="row mt-5">
     <div class="col-md-4 mb-3" *ngFor="let exercise of exercisesArray">
       <div class="card text-center">
         <div class="card-body"> 
@@ -12,4 +8,49 @@
         </div>   
       </div>
     </div>
+</div> -->
+
+<div>
+<div id="test" class="flex">
+ 
+  <div class="flex-1 mt-4 mr-4 ">
+    <div class="h-20 w-20 bg-white rounded-full float-right">
+      <i class="fas fa-phone fa-3x float-right bg-white p-4 rounded-full " id="main-color"></i>
+    </div>
+  </div>
 </div>
+
+<!-- today's exercises -->
+<div  id="main-graphic"  class="flex w-11/12 mx-auto rounded shadow bg-white mb-4">
+  <div class="p-4 w-full flex">
+    <div class="border-r  border-gray-500 flex-initial w-1/5">
+      <p class="text-sm text-gray-500">Today</p>
+      <h1 id="main-color" class="leading-tight text-xl font-bold flex-shrink">
+     remove this div plz
+      </h1>
+    </div>
+
+    <div class="pl-4 w-4/5 flex-initial text-left">
+      <h1 class="font-medium text-xl">Exercise Bank</h1>
+
+      <!-- single exercise-->
+      <div *ngFor="let ex of exercisesArray">
+        <div class="flex  border border-gray border-solid m-1">
+          <div class="flex-initial w-3/12">
+            <img src="https://placehold.it/120x100" alt="" />
+          </div>
+          <div class="flex-initial w-7/12 my-auto leading-tight ml-2">
+            <h1> Name: {{ex.name}} </h1>
+            <p>Description: {{ex.description}}</p>
+          </div>
+          <div class="flex-initial w-2/12 my-auto">
+            <i id="main-color" class="fa fa-plus-circle fa-2x"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div> 

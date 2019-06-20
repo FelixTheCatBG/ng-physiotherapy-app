@@ -15,7 +15,7 @@ import { ExerciseService } from '../_services/exercises.service';
 })
 export class TrainingComponent implements OnInit {
 
-  setExerciseData = {user:'',timestamp:'',rate:1,description:''};
+  // setExerciseData = {user:'',timestamp:'',rate:1,description:''};
   exercisesArray = [];
 
   constructor(
@@ -25,19 +25,20 @@ export class TrainingComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // this.getUser();
     this.getMyExercises();
   }
 
-  getUser() {
-    this.authenticationService.getUser()
-      .subscribe(
-        res => {
-          this.setExerciseData.user = res
-          console.log(res.username)
-        },
-        err => console.log(err)
-      )
-  }
+  // getUser() {
+  //   this.authenticationService.getUser()
+  //     .subscribe(
+  //       res => {
+  //         this.setExerciseData.user = res
+  //         console.log(res.username)
+  //       },
+  //       err => console.log(err)
+  //     )
+  // }
 
   getMyExercises(){
     this._exercise.getMyExercises()

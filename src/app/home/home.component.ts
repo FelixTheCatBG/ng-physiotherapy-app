@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 import { ExerciseService } from '../_services/exercises.service';
+import { CalendarService } from '../_services/calendar.service';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +17,12 @@ export class HomeComponent implements OnInit {
 
   user = {username:''};
   registerExerciseData = {exercise:'',user:''};
+  calendarFirst = {name:'',painscale:'', date:''};
 
   constructor (
     private authenticationService: AuthenticationService,
     private _exercise: ExerciseService,
+    private _calendar: CalendarService,
     private _router: Router
     ) { }
 
@@ -28,7 +31,7 @@ export class HomeComponent implements OnInit {
       this.getUser();
       //get my exercsises 
       this.getExercises();
-
+      this.getCalendar();
       // this.getExerciseById(id)
   }
 
@@ -48,6 +51,17 @@ export class HomeComponent implements OnInit {
     .subscribe(
         res => {       
           console.log(res)
+        },
+        err => console.log(err)
+      )
+  }
+
+  getCalendar(){
+    this._calendar.getCalendar()
+    .subscribe(
+        res => {
+        this.calendarFirst = res[0]
+        console.log(this.calendarFirst)
         },
         err => console.log(err)
       )

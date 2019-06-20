@@ -4,7 +4,7 @@
 
 <div class="row mt-5">
     <div class="col-md-4 mb-3" *ngFor="let calendardate of calendarArray">
-      <div class="card text-center">
+      <div class="card text-center" ng-if="$first">
         <div class="card-body"> 
           <h5 class="card-title">Date: {{ calendardate.date | date:'shortDate' }}</h5>
           <p class="card-text">Comment: {{calendardate.comment}}</p>
