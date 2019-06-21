@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CalendarService } from '../_services/calendar.service';
@@ -7,7 +7,8 @@ import { ExerciseService } from '../_services/exercises.service';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
+  
 })
 export class CalendarComponent implements OnInit {
   
@@ -15,8 +16,7 @@ export class CalendarComponent implements OnInit {
   exercisesArray = [];
 
   constructor(
-    private _calendar: CalendarService,
-    private _exercise: ExerciseService,
+    private _calendar: CalendarService,  
     private _router: Router
   ) { }
 

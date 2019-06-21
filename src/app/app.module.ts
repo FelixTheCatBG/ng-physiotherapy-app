@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -54,6 +54,7 @@ export function tokenGetter() {
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     JwtHelperService,

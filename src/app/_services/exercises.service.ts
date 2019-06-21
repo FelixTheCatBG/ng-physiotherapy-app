@@ -10,9 +10,11 @@ import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class ExerciseService {
-	
-	private _getExercises = "http://localhost:1337/exercises";
-    private _getMyExercises = "http://localhost:1337/myexercises";   
+    
+
+    private _getExercises = "http://localhost:1337/exercises";
+    private _getMyExercises = "http://localhost:1337/myexercises";
+    private _getExerciseById = "http://localhost:1337/exercises/";
    
 
 	constructor(
@@ -28,6 +30,10 @@ export class ExerciseService {
 	getMyExercises() {
 		return this.http.get<any>(this._getMyExercises)
 	}
+
+    getExerciseById(_id) {
+		return this.http.get<any>(this._getExerciseById + _id )
+    }   
 
 	// setExercise(user) {
 	// 	return this.http.post<any>(this._getMyExercises)
