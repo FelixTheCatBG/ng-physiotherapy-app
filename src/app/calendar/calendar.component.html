@@ -1,19 +1,58 @@
-<p>
-  calendar works! Something new
-</p>
+<nav class="flex flex-col justify-between flex-wrap p-6" id="main-gradient">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+    <a routerLink="/home" class="fas fa-arrow-left fa-2x px-3 py-2"></a>
+    <span class="font-semibold text-xl tracking-tight px-3 py-2"
+      >My progress</span
+    >
+  </div>
+</nav>
+
+  <input
+    type="text"
+    mwlFlatpickr
+    [(ngModel)]="selectedDate"
+    [altInput]="true"
+    [convertModelValue]="true"
+    inline="true"
+  />
+
+<!-- Styled input for date / not working with flatpick -->
+<!-- <form class="p-6">
+  <div
+    id="calendar"
+    class="flex items-center border-b border-b-2 border-red-600 p-2 "
+  >
+    <input
+      class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+      type="text"
+      data-input
+    />
+    <button
+      id=""
+      class="input-button flex-shrink-0 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded-full"
+      type="button"
+    >
+      Change date
+    </button>
+  </div>
+</form> -->
 
 <div class="row mt-5">
-    <div class="col-md-4 mb-3" *ngFor="let calendardate of calendarArray">
-      <div class="card text-center" ng-if="$first">
-        <div class="card-body"> 
-          <h5 class="card-title">Date: {{ calendardate.date | date:'shortDate' }}</h5>
-          <p class="card-text">Comment: {{calendardate.comment}}</p>
-          <p class="card-text">PainScale: {{ calendardate.painscale }}</p> 
-          <a href="" class="btn btn-primary">Select</a>   
-        
-          <app-dailyexercises [exArray]="calendardate.exercisedailydiaries"></app-dailyexercises>  
-          
-       <!-- <div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let calendardate of calendarArray">
+    <div class="card text-center" ng-if="$first">
+      <div class="card-body">
+        <h5 class="card-title">
+          Date: {{ calendardate.date | date: "shortDate" }}
+        </h5>
+        <p class="card-text">Comment: {{ calendardate.comment }}</p>
+        <p class="card-text">PainScale: {{ calendardate.painscale }}</p>
+        <a href="" class="btn btn-primary">Select</a>
+
+        <app-dailyexercises
+          [exArray]="calendardate.exercisedailydiaries"
+        ></app-dailyexercises>
+
+        <!-- <div class="row mt-5">
               <div class="col-md-4 mb-3" *ngFor="let ex of calendardate.exercisedailydiaries">
                 <p class="card-text">Sets: {{ ex.sets }}</p> 
                 <p class="card-text">Reps: {{ ex.reps }}</p>
@@ -21,8 +60,7 @@
                 <p class="card-text">Done: {{ ex.done }}</p>  
               </div>
             </div>          -->
-
-        </div>   
       </div>
     </div>
+  </div>
 </div>
