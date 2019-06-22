@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { CalendarService } from '../_services/calendar.service';
 import { ExerciseService } from '../_services/exercises.service';
 
+
+import 'flatpickr/dist/flatpickr.css'
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -33,6 +36,6 @@ export class CalendarComponent implements OnInit {
         },
         err => console.log(err)
       )
-  }
+  }  
 
 }

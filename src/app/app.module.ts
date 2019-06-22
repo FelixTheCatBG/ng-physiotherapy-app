@@ -21,6 +21,9 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { DailyexercisesComponent } from './dailyexercises/dailyexercises.component';
 import { HeaderComponent } from './header/header.component';
 
+import { FlatpickrModule } from 'angularx-flatpickr';
+import 'flatpickr/dist/flatpickr.css';
+
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -38,13 +41,14 @@ export function tokenGetter() {
     TrainingsingleexerciseComponent,
     CalendarComponent,
     DailyexercisesComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    FlatpickrModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -60,6 +64,6 @@ export function tokenGetter() {
     JwtHelperService,
     AuthGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

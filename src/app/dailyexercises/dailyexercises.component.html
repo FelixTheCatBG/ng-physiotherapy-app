@@ -1,4 +1,33 @@
-<div class="row mt-5">
+<div *ngFor="let ex of exArray">
+  <div class="flex  border border-gray border-solid m-1">
+    <div class="flex-initial w-3/12">
+      <img src="https://placehold.it/120x100" alt="" />
+    </div>
+    <div
+      class="flex-initial w-7/12 my-auto leading-tight ml-2"
+      (click)="checkFeedback()"
+    >
+      <h1>{{ ex._id }}</h1>
+      <p class="text-sm">Reps: {{ ex.reps }}</p>
+      <p class="text-sm">Sets: {{ ex.sets }}</p>
+    </div>
+    <div class="flex-initial w-2/12 my-auto">
+      <div *ngIf="!ex.done; else exerciseIsDone" (click)="ex.done = !ex.done">
+        <i id="main-color" class="far fa-circle fa-2x"></i>
+      </div>
+
+      <ng-template #exerciseIsDone>
+        <i
+          id="main-color"
+          class="far fa-check-circle fa-2x"
+          (click)="ex.done = !ex.done"
+        ></i>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row mt-5">
     <div class="col-md-4 mb-3" *ngFor="let ex of exArray">
       <p class="card-text">ExerciseId: {{ ex.exercise }}</p>
       <p class="card-text">Exercisename: {{ getExerciseById(ex.exercise) }}</p>    
@@ -7,4 +36,4 @@
       <p class="card-text">Occurance: {{ ex.occurance }}</p>
       <p class="card-text">Done: {{ ex.done }}</p>  
     </div>
-</div>         
+</div>          -->
