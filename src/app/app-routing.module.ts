@@ -9,7 +9,8 @@ import { TrainingComponent } from './training/training.component';
 import { TrainingexercisebankComponent } from './training/trainingexercisebank/trainingexercisebank.component';
 import { DailyexercisesComponent } from './dailyexercises/dailyexercises.component';
 import { CalendarComponent } from './calendar/calendar.component';
-
+import { GoalsComponent } from "./goals/goals.component";
+import { SettingsComponent } from "./settings/settings.component";
 
 const routes: Routes = [
   {
@@ -43,6 +44,16 @@ const routes: Routes = [
   {
     path: 'dailyexercises',
     component: DailyexercisesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'goals',
+    component: GoalsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
     canActivate: [AuthGuard]
   },
 
