@@ -20,9 +20,9 @@
             box-sizing: border-box;
     -ms-touch-action: manipulation;
         touch-action: manipulation;
-    background: #fff;
+    /* background: #fff;
     -webkit-box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6, 0 -1px 0 #e6e6e6, 0 3px 13px rgba(0,0,0,0.08);
-            box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6, 0 -1px 0 #e6e6e6, 0 3px 13px rgba(0,0,0,0.08);
+            box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6, 0 -1px 0 #e6e6e6, 0 3px 13px rgba(0,0,0,0.08); */
   }
   .flatpickr-calendar.open,
   .flatpickr-calendar.inline {
@@ -42,6 +42,7 @@
     display: block;
     position: relative;
     top: 2px;
+    margin: 0 auto !important;
   }
   .flatpickr-calendar.static {
     position: absolute;
@@ -77,14 +78,14 @@
   }
   .flatpickr-calendar:before,
   .flatpickr-calendar:after {
-    position: absolute;
+    /* position: absolute;
     display: block;
     pointer-events: none;
     border: solid transparent;
     content: '';
     height: 0;
     width: 0;
-    left: 22px;
+    left: 22px; */
   }
   .flatpickr-calendar.rightMost:before,
   .flatpickr-calendar.rightMost:after {
@@ -136,7 +137,7 @@
     background: transparent;
     color: rgba(0,0,0,0.9);
     fill: rgba(0,0,0,0.9);
-    height: 28px;
+    height: 34px;
     line-height: 1;
     text-align: center;
     position: relative;
@@ -377,7 +378,7 @@
     font-size: inherit;
     font-family: inherit;
     font-weight: 300;
-    height: 22px;
+    /* height: 22px; */
     line-height: inherit;
     margin: -1px 0 0 0;
     outline: none;
@@ -430,7 +431,7 @@
     cursor: default;
     font-size: 90%;
     background: transparent;
-    color: rgba(0,0,0,0.54);
+    /* color: rgba(0,0,0,0.54); */
     line-height: 1;
     margin: 0;
     text-align: center;

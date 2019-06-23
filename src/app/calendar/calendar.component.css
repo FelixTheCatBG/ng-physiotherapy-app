@@ -1,10 +1,36 @@
-#main-gradient{
-    background-image: linear-gradient(to right bottom, #ff5050, #ff6652, #ff7856, #ff895d, #ff9966);
-  }
+#main-gradient {
+  background-image: linear-gradient(
+    to right bottom,
+    #ff5050,
+    #ff6652,
+    #ff7856,
+    #ff895d,
+    #ff9966
+  );
+}
 
+#main-gradient-reversed {
+  background-image: linear-gradient(
+    to right top,
+    #ff5050,
+    #ff6652,
+    #ff7856,
+    #ff895d,
+    #ff9966
+  );
+}
+input{
+  background: transparent !important; 
+}
 #main-color {
-    /* background: linear-gradient(to right bottom, #ff5050, #ff6652, #ff7856, #ff895d, #ff9966); */
-    background: -webkit-linear-gradient( #ff5050, #ff6652, #ff7856, #ff895d, #ff9966);
-     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* background: linear-gradient(to right bottom, #ff5050, #ff6652, #ff7856, #ff895d, #ff9966); */
+  background: -webkit-linear-gradient(
+    #ff5050,
+    #ff6652,
+    #ff7856,
+    #ff895d,
+    #ff9966
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
