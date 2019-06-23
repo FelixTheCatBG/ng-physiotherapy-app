@@ -40,7 +40,7 @@
   </div>
 </form>  -->
 
-<div *ngFor="let calendardate of calendarArray ">
+<div *ngFor="let calendardate of calendarArray " style="margin-bottom: 50px">
 <div class="flex w-11/12 mx-auto rounded shadow bg-white mb-4">
   <div class="p-4 w-full flex">
     <div class="border-r  border-gray-500 flex-initial w-1/5">
@@ -54,7 +54,7 @@
       <p class="text-gray-500">Comment: {{ calendardate.comment }}</p>
     </div>
     <div class="flex-initial w-1/5">
-      <h1 id="main-color" class="p-2 text-4xl font-bold" *ngIf="calendardate.painscale != null">
+      <h1 id="main-color" class="p-2 text-4xl font-bold" *ngIf="calendardate.painscale != null || 0">
         {{ calendardate.painscale }}
       </h1>
     </div>
