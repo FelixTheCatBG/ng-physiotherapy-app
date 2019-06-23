@@ -2,22 +2,22 @@
   class="flex fixed bg-white w-full text-center border-t-4 border-b-4 border-grey p-4 bottom-0 border-red-500"
 >
   <div class="flex-1">
-    <a routerLink="/"><i class="fas fa-home fa-lg"></i></a>     
+    <a routerLink="/" routerLinkActive="text-red-500" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-home fa-lg"></i></a>     
   </div>
 
   <div class="flex-1">
-    <a routerLink="/myexercises"><i class="fas fa-dumbbell fa-lg"></i></a> 
+    <a routerLink="/myexercises" routerLinkActive="text-red-500" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-dumbbell fa-lg"></i></a> 
   </div>
 
   <div class="flex-1">
-      <i class="fas fa-trophy fa-2x"></i>
+      <a routerLink="/goals" routerLinkActive="text-red-500" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-trophy fa-2x"></i></a>
   </div>
 
   <div class="flex-1">
-    <a routerLink="/calendar"><i class="fas fa-calendar-alt fa-lg"></i></a>      
+    <a routerLink="/calendar" routerLinkActive="text-red-500" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-calendar-alt fa-lg"></i></a>      
   </div>
 
   <div class="flex-1">
-      <i class="fas fa-cog fa-lg"></i>
+      <a routerLink="/settings" routerLinkActive="text-red-500" [routerLinkActiveOptions]="{exact: true}"><i class="fas fa-cog fa-lg"></i></a>
   </div>
 </footer>
