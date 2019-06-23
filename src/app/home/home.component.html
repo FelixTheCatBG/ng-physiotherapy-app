@@ -1,4 +1,48 @@
 <div>
+  <!-- contact modal -->
+  <div
+    class="w-full h-screen fixed pinz-50 overflow-hidden smoke-darker flex"
+    [style.display]="displayContact ? 'block' : 'none'"
+    (click)="displayContact = !displayContact"
+  >
+    <div class="w-4/5 h-screen bg-white pin-r flex-initial float-right pt-8">
+      <div class="w-1/5 float-right text-left">
+      <i
+        class="fas fa-times fa-2x text-left text-gray-800"
+      ></i>
+    </div>
+
+      <div class="w-3/4 mx-auto text-left p-4 pt-12">
+        <h1 id="main-color" class="font-2xl font-bold">Physiotherapist</h1>
+        <p class="text-gray-500 font-md">Jens Jensen</p>
+      </div>
+
+      <div class="w-3/4 mx-auto text-left p-4">
+        <h1 id="main-color" class="font-2xl font-bold">Address</h1>
+        <p class="text-gray-500 font-md">Alborgvej 2</p>
+        <p class="text-gray-500 font-md">Physiotherapists Aalborg</p>
+      </div>
+
+      <div class="w-3/4 mx-auto text-left p-4">
+        <h1 id="main-color" class="font-2xl font-bold">Contact</h1>
+        <div class="flex w-full">
+          <i id="main-color" class="fas fa-envelope p-2"></i>
+          <p class="text-gray-500 font-md pt-1">email@email.com</p>
+        </div>
+        <div class="flex w-full">
+          <i id="main-color" class="fas fa-phone-alt p-2"></i>
+          <p class="text-gray-500 font-md pt-1">12121212</p>
+        </div>
+      </div>
+
+      <div class="w-3/4 mx-auto text-left p-4">
+        <h1 id="main-color" class="font-2xl font-bold">Opening time</h1>
+        <p class="text-gray-500 font-md">Mon-Thur 8:00-16:00</p>
+        <p class="text-gray-500 font-md">Friday 10:00-14:00</p>
+      </div>
+    </div>
+  </div>
+
   <!-- modal for dizziness feedback -->
   <div
     class="w-full h-screen fixed pin z-50 overflow-hidden bg-white flex"
@@ -68,7 +112,10 @@
       <p class="text-3xl text-left text-white">{{ user.username }}</p>
     </div>
     <div class="flex-1 mt-4 mr-4 ">
-      <div class="h-20 w-20 bg-white rounded-full float-right">
+      <div
+        class="h-20 w-20 bg-white rounded-full float-right"
+        (click)="displayContact = !displayContact"
+      >
         <i
           class="fas fa-phone fa-3x float-right bg-white p-4 rounded-full "
           id="main-color"

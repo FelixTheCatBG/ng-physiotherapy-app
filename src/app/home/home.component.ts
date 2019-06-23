@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
 
 
   isVisible: boolean = false;
+  displayContact: boolean = false;
 
   feedbackDisplayedImg: string = "../../assets/feedbackIcons/1.png";
   FeedbackImages = [
