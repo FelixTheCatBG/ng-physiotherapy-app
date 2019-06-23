@@ -24,6 +24,8 @@ import { HeaderComponent } from './header/header.component';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 
+import { SearchFilterPipe } from "./_pipes/searchfilter.pipe";
+
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -42,6 +44,7 @@ export function tokenGetter() {
     CalendarComponent,
     DailyexercisesComponent,
     HeaderComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
