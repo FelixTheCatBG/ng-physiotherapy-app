@@ -1,43 +1,63 @@
 <div>
   <!-- modal for dizziness feedback -->
-
   <div
     class="w-full h-screen fixed pin z-50 overflow-hidden bg-white flex"
     [style.display]="isVisible ? 'block' : 'none'"
   >
-    <div class="w-full flex h-20 content-center text-white" id="main-bg-color">
-      <div class="w-1/5 flex-initial my-auto" (click)="isVisible = !isVisible">
-        <i class="fas fa-arrow-left fa-2x"></i>
-      </div>
-      <div class="w-4/5 flex-initial my-auto">
-        <h1 class="text-left text-2xl font-bold -mt-2">My progress</h1>
-      </div>
-    </div>
-
-    <div class="w-full my-auto">
-      <div class="w-4/5 mx-auto mt-20 mb-8">
-        <h1 class="text-xl font-semibold">Drag to declare your pain level</h1>
-      </div>
-      <div class="w-4/5 mx-auto flex-1 p-8">
-        <div class="w-3/5 mx-auto">
-          <img src="{{ feedbackDisplayedImg }}" class="max-w-4/5" id="feedbackImg" alt="" />
+    <form method="POST" class="mb-" action="#" onsubmit="return false;">
+      <div
+        class="w-full flex h-20 content-center text-white"
+        id="main-bg-color"
+      >
+        <div
+          class="w-1/5 flex-initial my-auto"
+          (click)="isVisible = !isVisible"
+        >
+          <i class="fas fa-arrow-left fa-2x"></i>
         </div>
-
-        <input
-          #rangeSelector
-          [(ngModel)]="rangeModel"
-          (ngModelChange)="setRangeValue($event)"
-          type="range"
-          min="1"
-          max="10"
-          value="1"
-          class="slider mt-8"
-          id="myRange"
-        />
+        <div class="w-4/5 flex-initial my-auto">
+          <h1 class="text-left text-2xl font-bold -mt-2">My progress</h1>
+        </div>
       </div>
-    </div>
 
-    <button (click)="submitDizziness()" class="pt-2 pb-2 pr-3 pl-3 text-white rounded text-xl font-semibold" id="main-bg-color">Submit</button>
+      <div class="w-full my-auto">
+        <div class="w-4/5 mx-auto mt-20 mb-8">
+          <h1 class="text-xl font-semibold">Drag to declare your pain level</h1>
+        </div>
+        <div class="w-4/5 mx-auto flex-1 p-8">
+          <div class="w-3/5 mx-auto">
+            <img
+              src="{{ feedbackDisplayedImg }}"
+              class="max-w-4/5"
+              id="feedbackImg"
+              alt=""
+            />
+          </div>
+
+          <input
+            required
+            #rangeSelector
+            [(ngModel)]="painscale"
+            name="painscale"
+            (ngModelChange)="setRangeValue($event)"
+            type="range"
+            min="1"
+            max="10"
+            value="1"
+            class="slider mt-8"
+            id="painscale"
+          />
+        </div>
+      </div>
+
+      <button
+        (click)="submitDizziness()"
+        class="pt-2 pb-2 pr-3 pl-3 text-white rounded text-xl font-semibold"
+        id="main-bg-color"
+      >
+        Submit
+      </button>
+    </form>
   </div>
 
   <div id="test" class="flex">
@@ -174,7 +194,7 @@
     </div>
   </div>
 
-  <div class="w-full h-20" [style.display]="isVisible ? 'block' : 'none'">
+  <!-- <div class="w-full h-20" [style.display]="isVisible ? 'block' : 'none'">
       <div class="p-6">
           <form method="POST" class="mb-" action="#" onsubmit="return false;">
             <div class="mb-10">
@@ -200,8 +220,8 @@
           </form>
 
         </div>
-    <!-- <button (click)="submitDizziness()">Submit</button> -->
-  </div>
+    <button (click)="submitDizziness()">Submit</button>
+  </div> -->
 
   <!-- update goal -->
   <div class="flex w-11/12 mx-auto rounded shadow bg-white mb-24 leading-tight">

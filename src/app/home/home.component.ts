@@ -72,8 +72,7 @@ export class HomeComponent implements OnInit {
   }
 
   setRangeValue(e: boolean) {
-    let feedbackValue = (<HTMLInputElement>document.getElementById("myRange"))
-      .value;
+    let feedbackValue = (<HTMLInputElement>document.getElementById("painscale")).value;
     if (feedbackValue == "2") {
       this.feedbackDisplayedImg = this.FeedbackImages[1].url;
     } else if (feedbackValue == "3") {
