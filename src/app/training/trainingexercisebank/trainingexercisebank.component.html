@@ -2,31 +2,31 @@
   <div class="flex items-center flex-shrink-0 text-white mr-6">
     <a routerLink="/home" class="fas fa-arrow-left fa-2x px-3 py-2"></a>
     <i></i>
-    <span class="font-semibold text-xl tracking-tight px-3 py-2"
-      >Training exercises</span
-    >
+    <span class="font-semibold text-xl tracking-tight px-3 py-2">Training exercises</span>
   </div>
 </nav>
 
 <nav class="flex m-4">
   <div class="flex-1 m-2">
-    <a
-      routerLink="/myexercises"
-      class="text-center block shadow-lg border border-red-500 rounded-full text-red-500 hover:text-white hover:bg-red-500 py-2 px-4"
-      >MY EXERCISES</a
-    >
+    <a routerLink="/myexercises"
+      class="text-center block shadow-lg border border-red-500 rounded-full text-red-500 hover:text-white hover:bg-red-500 py-2 px-4">MY
+      EXERCISES</a>
   </div>
   <div class="flex-1 m-2">
-    <a
-      routerLink="/exercises"
-      class="text-center block shadow-lg border border-red-500 rounded-full text-white bg-red-500 py-2 px-4"
-      >EXERCISE BANK</a
-    >
+    <a routerLink="/exercises"
+      class="text-center block shadow-lg border border-red-500 rounded-full text-white bg-red-500 py-2 px-4">EXERCISE
+      BANK</a>
   </div>
 </nav>
 
 <div class="p-2 my-4 mx-2">
+<<<<<<< HEAD
 <input [(ngModel)]="searchText" class="bg-white focus:outline-0 focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" placeholder="Search exercises..." type="text">
+=======
+  <input
+    class="bg-white focus:outline-0 focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+    placeholder="Search exercises...">
+>>>>>>> a6e290a8325d847c8a3e2c5caf7b5a9cc22f97f2
 </div>
 
 <!-- <div class="row mt-5">
@@ -44,6 +44,7 @@
 </div>
  -->
 
+<<<<<<< HEAD
 <div
   class="flex bg-white rounded-lg p-2 my-4 mx-2 shadow-lg border"
   *ngFor="let exercise of exercisesArray | searchfilter : searchText"
@@ -52,18 +53,25 @@
     class="h-24 w-24 mr-4 rounded-lg bg-cover"
     src="https://images.unsplash.com/photo-1485727749690-d091e8284ef3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
   />
+=======
+<div class="flex bg-white rounded-lg p-2 my-4 mx-2 shadow-lg border" *ngFor="let exercise of exercisesArray">
+  <img class="h-24 w-24 mr-4 rounded-lg bg-cover"
+    src="https://images.unsplash.com/photo-1485727749690-d091e8284ef3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" />
+>>>>>>> a6e290a8325d847c8a3e2c5caf7b5a9cc22f97f2
   <div class="text-left w-1/2">
     <h2 class="text-lg">{{ exercise.name }}</h2>
-    <div class="text-gray-600 text-sm">Sets: 2</div>
-    <div class="text-gray-600 text-sm">Repetitions: 10</div>
-    <a
-      href="#"
-      class="text-sm text-red-500 hover:text-white bg-transparent hover:bg-red-500 border border-red-500 px-1 rounded shadow"
-      >READ MORE</a
-    >
+    <div class="text-gray-600 text-sm">Description: {{ exercise.description }}</div>
+    <div class="text-gray-600 text-sm">Video:</div>
+    <!-- <div class="text-gray-600 text-sm">Sets: 2</div>
+    <div class="text-gray-600 text-sm">Repetitions: 10</div> -->
+    <a href="#"
+      class="text-sm text-red-500 hover:text-white bg-transparent hover:bg-red-500 border border-red-500 px-1 rounded shadow">READ
+      MORE</a>
   </div>
-  <div class="relative w-1/4">
-    <input type="checkbox" class="absolute top-0 right-0" />
+  <div class="relative w-1/4 my-auto">
+  
+      <i id="main-color" class="fa fa-plus-circle fa-2x"></i>
+ 
   </div>
 </div>
 <!-- Bootstrap: -->
@@ -102,7 +110,7 @@
     <div class="pl-4 w-4/5 flex-initial text-left">
       <h1 class="font-medium text-xl">Exercise Bank</h1> -->
 
-      <!-- single exercise-->
+<!-- single exercise-->
 <!--       <div *ngFor="let ex of exercisesArray">
         <div class="flex  border border-gray border-solid m-1">
           <div class="flex-initial w-3/12">

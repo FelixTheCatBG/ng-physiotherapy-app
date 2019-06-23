@@ -40,7 +40,7 @@
   </div>
 </form> -->
 
-<div *ngFor="let calendardate of calendarArray" ng-if="$first">
+<div *ngFor="let calendardate of calendarArray.reverse() | slice:1" ng-if="$first">
 <div class="flex w-11/12 mx-auto rounded shadow bg-white mb-4">
   <div class="p-4 w-full flex">
     <div class="border-r  border-gray-500 flex-initial w-1/5">

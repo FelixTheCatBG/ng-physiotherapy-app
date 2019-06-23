@@ -12,7 +12,8 @@ import { map } from 'rxjs/operators';
 export class CalendarService {
 	
 	private _getCalendar = "http://localhost:1337/exercisediaries?_sort=date:DESC";
-    private _getMyExercises = "http://localhost:1337/myexercises";   
+	private _getMyExercises = "http://localhost:1337/myexercises";   
+	private _registerDizzy= "http://localhost:1337/exercisediaries/";   
    
 
 	constructor(
@@ -29,8 +30,9 @@ export class CalendarService {
 		return this.http.get<any>(this._getMyExercises)
 	}
 
-	// setExercise(user) {
-	// 	return this.http.post<any>(this._getMyExercises)
-	// }
+	
+	registerDizzy(id,body) {
+	 	return this.http.put<any>(this._registerDizzy + id,body)
+	 }
 
 }

@@ -7,18 +7,14 @@
 
 <nav class="flex m-4">
   <div class="flex-1 m-2">
-    <a
-      routerLink="/myexercises"
-      class="text-center block shadow-lg border border-red-500 rounded-full text-white bg-red-500 py-2 px-4"
-      >MY EXERCISES</a
-    >
+    <a routerLink="/myexercises"
+      class="text-center block shadow-lg border border-red-500 rounded-full text-white bg-red-500 py-2 px-4">MY
+      EXERCISES</a>
   </div>
   <div class="flex-1 m-2">
-    <a
-      routerLink="/exercises"
-      class="text-center block shadow-lg border border-red-500 rounded-full text-red-500 hover:text-white hover:bg-red-500 py-2 px-4"
-      >EXERCISE BANK</a
-    >
+    <a routerLink="/exercises"
+      class="text-center block shadow-lg border border-red-500 rounded-full text-red-500 hover:text-white hover:bg-red-500 py-2 px-4">EXERCISE
+      BANK</a>
   </div>
 </nav>
 <!-- Vasils code: -->
@@ -69,8 +65,8 @@
     <div class="pl-4 w-4/5 flex-initial text-left">
       <h1 class="font-medium text-xl">My exercises</h1> -->
 
-      <!-- single exercise-->
-      <!-- <div *ngFor="let ex of exercisesArray">
+<!-- single exercise-->
+<!-- <div *ngFor="let ex of exercisesArray">
         <div class="flex  border border-gray border-solid m-1">
           <div class="flex-initial w-3/12">
             <img src="https://placehold.it/120x100" alt="" />
@@ -89,25 +85,20 @@
   </div>
 </div> -->
 
-<div
-  class="flex bg-white rounded-lg p-2 my-4 mx-2 shadow-lg border"
-  *ngFor="let exercise of exercisesArray"
->
-  <img
-    class="h-24 w-24 mr-4 rounded-lg bg-cover"
-    src="https://images.unsplash.com/photo-1485727749690-d091e8284ef3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-  />
+<div class="flex bg-white rounded-lg p-2 my-4 mx-2 shadow-lg border" *ngFor="let exercise of exercisesArray">
+  <img class="h-24 w-24 mr-4 rounded-lg bg-cover"
+    src="https://images.unsplash.com/photo-1485727749690-d091e8284ef3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" />
   <div class="text-left w-1/2">
     <h2 class="text-lg">{{ exercise.exercise.name }}</h2>
-    <div class="text-gray-600 text-sm">Sets: 2</div>
-    <div class="text-gray-600 text-sm">Repetitions: 10</div>
-    <a
-      href="#"
-      class="text-sm text-red-500 hover:text-white bg-transparent hover:bg-red-500 border border-red-500 px-1 rounded shadow"
-      >READ MORE</a
-    >
+      <div class="text-gray-600 text-sm">Description: {{ exercise.exercise.description }}</div>
+      <div class="text-gray-600 text-sm">Video: {{ exercise.exercise.description }}</div>
+    <!-- <div class="text-gray-600 text-sm">Sets: 2</div>
+    <div class="text-gray-600 text-sm">Repetitions: 10</div> -->
+    <a href="#"
+      class="text-sm text-red-500 hover:text-white bg-transparent hover:bg-red-500 border border-red-500 px-1 rounded shadow">READ
+      MORE</a>
   </div>
-  <div class="relative w-1/4">
+  <!-- <div class="relative w-1/4">
     <input type="checkbox" class="absolute top-0 right-0" />
-  </div>
+  </div> -->
 </div>

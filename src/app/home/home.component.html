@@ -1,4 +1,109 @@
 <div>
+  <!-- contact modal -->
+  <div
+    class="w-full h-screen fixed pinz-50 overflow-hidden smoke-darker flex"
+    [style.display]="displayContact ? 'block' : 'none'"
+    (click)="displayContact = !displayContact"
+  >
+    <div class="w-4/5 h-screen bg-white pin-r flex-initial float-right pt-8">
+      <div class="w-1/5 float-right text-left">
+      <i
+        class="fas fa-times fa-2x text-left text-gray-800"
+      ></i>
+    </div>
+
+      <div class="w-3/4 mx-auto text-left p-4 pt-12">
+        <h1 id="main-color" class="font-2xl font-bold">Physiotherapist</h1>
+        <p class="text-gray-500 font-md">Jens Jensen</p>
+      </div>
+
+      <div class="w-3/4 mx-auto text-left p-4">
+        <h1 id="main-color" class="font-2xl font-bold">Address</h1>
+        <p class="text-gray-500 font-md">Alborgvej 2</p>
+        <p class="text-gray-500 font-md">Physiotherapists Aalborg</p>
+      </div>
+
+      <div class="w-3/4 mx-auto text-left p-4">
+        <h1 id="main-color" class="font-2xl font-bold">Contact</h1>
+        <div class="flex w-full">
+          <i id="main-color" class="fas fa-envelope p-2"></i>
+          <p class="text-gray-500 font-md pt-1">email@email.com</p>
+        </div>
+        <div class="flex w-full">
+          <i id="main-color" class="fas fa-phone-alt p-2"></i>
+          <p class="text-gray-500 font-md pt-1">12121212</p>
+        </div>
+      </div>
+
+      <div class="w-3/4 mx-auto text-left p-4">
+        <h1 id="main-color" class="font-2xl font-bold">Opening time</h1>
+        <p class="text-gray-500 font-md">Mon-Thur 8:00-16:00</p>
+        <p class="text-gray-500 font-md">Friday 10:00-14:00</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal for dizziness feedback -->
+  <div
+    class="w-full h-screen fixed pin z-50 overflow-hidden bg-white flex"
+    [style.display]="isVisible ? 'block' : 'none'"
+  >
+    <form method="POST" class="mb-" action="#" onsubmit="return false;">
+      <div
+        class="w-full flex h-20 content-center text-white"
+        id="main-bg-color"
+      >
+        <div
+          class="w-1/5 flex-initial my-auto"
+          (click)="isVisible = !isVisible"
+        >
+          <i class="fas fa-arrow-left fa-2x"></i>
+        </div>
+        <div class="w-4/5 flex-initial my-auto">
+          <h1 class="text-left text-2xl font-bold -mt-2">My progress</h1>
+        </div>
+      </div>
+
+      <div class="w-full my-auto">
+        <div class="w-4/5 mx-auto mt-20 mb-8">
+          <h1 class="text-xl font-semibold">Drag to declare your pain level</h1>
+        </div>
+        <div class="w-4/5 mx-auto flex-1 p-8">
+          <div class="w-3/5 mx-auto">
+            <img
+              src="{{ feedbackDisplayedImg }}"
+              class="max-w-4/5"
+              id="feedbackImg"
+              alt=""
+            />
+          </div>
+
+          <input
+            required
+            #rangeSelector
+            [(ngModel)]="painscale"
+            name="painscale"
+            (ngModelChange)="setRangeValue($event)"
+            type="range"
+            min="1"
+            max="10"
+            value="1"
+            class="slider mt-8"
+            id="painscale"
+          />
+        </div>
+      </div>
+
+      <button
+        (click)="submitDizziness()"
+        class="pt-2 pb-2 pr-3 pl-3 text-white rounded text-xl font-semibold"
+        id="main-bg-color"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+
   <div id="test" class="flex">
     <div class="flex-1 ml-2 p-4">
       <p class="text-3xl text-white text-left font-bold">
@@ -7,7 +112,10 @@
       <p class="text-3xl text-left text-white">{{ user.username }}</p>
     </div>
     <div class="flex-1 mt-4 mr-4 ">
-      <div class="h-20 w-20 bg-white rounded-full float-right">
+      <div
+        class="h-20 w-20 bg-white rounded-full float-right"
+        (click)="displayContact = !displayContact"
+      >
         <i
           class="fas fa-phone fa-3x float-right bg-white p-4 rounded-full "
           id="main-color"
@@ -49,7 +157,10 @@
     <div class="p-4 w-full flex">
       <div class="border-r  border-gray-500 flex-initial w-1/5">
         <p class="text-sm text-gray-500">Today</p>
-        <h1 id="main-color" class="leading-tight text-2xl font-bold flex-shrink">
+        <h1
+          id="main-color"
+          class="leading-tight text-2xl font-bold flex-shrink"
+        >
           {{ calendarFirst.date | date: "dd MMM" }}
         </h1>
       </div>
@@ -58,7 +169,11 @@
         <p class="text-gray-500">No comment</p>
       </div>
       <div class="flex-initial w-1/5">
-        <h1 id="main-color" class="p-2 text-4xl font-bold" *ngIf="calendarFirst.painscale != null">
+        <h1
+          id="main-color"
+          class="p-2 text-4xl font-bold"
+          *ngIf="calendarFirst.painscale != null"
+        >
           {{ calendarFirst.painscale }}
         </h1>
       </div>
@@ -71,35 +186,54 @@
       <div class="border-r  border-gray-500 flex-initial w-1/5">
         <p class="text-sm text-gray-500">Today</p>
         <div class="flex-inital w-full">
-        <h1 id="main-color" class="leading-tight text-2xl font-bold">
-          {{ calendarFirst.date | date: 'dd MMM' }}
-        </h1>
-      </div>
+          <h1 id="main-color" class="leading-tight text-2xl font-bold">
+            {{ calendarFirst.date | date: "dd MMM" }}
+          </h1>
+        </div>
       </div>
 
       <div class="pl-4 w-4/5 flex-initial text-left">
         <h1 class="font-medium text-xl">Today's exercises</h1>
 
         <!-- single exercise-->
-        <div *ngFor="let ex of calendarFirst.exercisedailydiaries">
+        <div
+          *ngFor="let ex of calendarFirst.exercisedailydiaries"
+          (click)="checkFeedback()"
+        >
           <div class="flex  border border-gray border-solid m-1">
             <div class="flex-initial w-3/12">
-              <img src="https://placehold.it/120x100" alt="" />
+              <img
+                src="https://images.unsplash.com/photo-1485727749690-d091e8284ef3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                alt=""
+              />
             </div>
-            <div class="flex-initial w-7/12 my-auto leading-tight ml-2" (click)="checkFeedback()">
-              <h1>{{ ex._id }}</h1>
+            <div
+              class="flex-initial w-7/12 my-auto leading-tight ml-2"
+              (click)="checkFeedback()"
+            >
+              <h1>{{ ex.name }}</h1>
               <p class="text-sm">Reps: {{ ex.reps }}</p>
               <p class="text-sm">Sets: {{ ex.sets }}</p>
             </div>
             <div class="flex-initial w-2/12 my-auto">
-              <div *ngIf="!ex.done; else exerciseIsDone" (click)="ex.done = !ex.done">
-                <i id="main-color" class="far fa-circle fa-2x"></i>
+              <div
+                *ngIf="!ex.done; else exerciseIsDone"
+                (click)="ex.done = !ex.done"
+              >
+                <i
+                  id="main-color"
+                  (change)="checkFeedback()"
+                  class="far fa-circle fa-2x"
+                ></i>
               </div>
 
-              <ng-template #exerciseIsDone >
-                <i id="main-color" class="far fa-check-circle fa-2x" (click)="ex.done = !ex.done"></i>
+              <ng-template #exerciseIsDone>
+                <i
+                  id="main-color"
+                  class="far fa-check-circle fa-2x"
+                  (click)="ex.done = !ex.done"
+                ></i>
               </ng-template>
-              
             </div>
           </div>
         </div>
@@ -107,9 +241,34 @@
     </div>
   </div>
 
-  <div class="w-full h-20" [style.display]="isVisible ? 'block' : 'none'">
+  <!-- <div class="w-full h-20" [style.display]="isVisible ? 'block' : 'none'">
+      <div class="p-6">
+          <form method="POST" class="mb-" action="#" onsubmit="return false;">
+            <div class="mb-10">
+              <input
+                required
+                type="text"
+                [(ngModel)]="painscale"
+                name="painscale"
+                id="painscale"
+                class="block w-full p-3 rounded-full  border border-black focus:outline-none"
+                placeholder="Enter number from 1 to 10"
+              />
+
+            </div>
+
+            <button
+              type="button"
+              (click)="submitDizziness()"
+              class="w-full p-3 mt-4 bg-red-500 text-white rounded-full shadow"
+            >
+              Submit
+            </button>
+          </form>
+
+        </div>
     <button (click)="submitDizziness()">Submit</button>
-  </div>
+  </div> -->
 
   <!-- update goal -->
   <div class="flex w-11/12 mx-auto rounded shadow bg-white mb-24 leading-tight">
