@@ -81,23 +81,23 @@
         <h1 class="font-medium text-xl">Today's exercises</h1>
 
         <!-- single exercise-->
-        <div *ngFor="let ex of calendarFirst.exercisedailydiaries">
+        <div *ngFor="let ex of calendarFirst.exercisedailydiaries" (click)="checkFeedback()">
           <div class="flex  border border-gray border-solid m-1">
             <div class="flex-initial w-3/12">
               <img src="https://placehold.it/120x100" alt="" />
             </div>
-            <div class="flex-initial w-7/12 my-auto leading-tight ml-2" (click)="checkFeedback()">
+            <div class="flex-initial w-7/12 my-auto leading-tight ml-2"  (click)="checkFeedback()">
               <h1>{{ ex.name }}</h1>
               <p class="text-sm">Reps: {{ ex.reps }}</p>
               <p class="text-sm">Sets: {{ ex.sets }}</p>
             </div>
             <div class="flex-initial w-2/12 my-auto">
-              <div *ngIf="!ex.done; else exerciseIsDone" (click)="ex.done = !ex.done">
-                <i id="main-color" class="far fa-circle fa-2x"></i>
+              <div *ngIf="!ex.done; else exerciseIsDone"  (click)="ex.done = !ex.done ">
+                <i id="main-color"  (change)="checkFeedback()" class="far fa-circle fa-2x"></i>
               </div>
 
               <ng-template #exerciseIsDone >
-                <i id="main-color" class="far fa-check-circle fa-2x" (click)="ex.done = !ex.done"></i>
+                <i id="main-color"  class="far fa-check-circle fa-2x"  (click)="ex.done = !ex.done"></i>
               </ng-template>
               
             </div>

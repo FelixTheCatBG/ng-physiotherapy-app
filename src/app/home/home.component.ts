@@ -48,7 +48,8 @@ export class HomeComponent implements OnInit {
   }
 
 
-  checkFeedback() {
+  checkFeedback(e:boolean) {
+    e=!e;
     let temp = true;
 
     this.calendarFirst.exercisedailydiaries.forEach(ex => {
