@@ -15,14 +15,17 @@ import { CalendarService } from "../_services/calendar.service";
 })
 export class HomeComponent implements OnInit {
   user = { username: "" };
-  registerExerciseData = { exercise: "", user: "" };
+  painscale = '';
   calendarFirst = {
+    _id: "",
     name: "",
     painscale: "",
     date: "",
     done: "",
     exercisedailydiaries: []
   };
+
+
   isVisible: boolean = false;
 
   feedbackDisplayedImg: string = "../../assets/feedbackIcons/1.png";
@@ -55,8 +58,17 @@ export class HomeComponent implements OnInit {
     // this.getExerciseById(id)
   }
 
-  submitDizziness() {
-    this.isVisible = false;
+  submitDizziness(){
+    this.calendarFirst.painscale=this.painscale;
+    this._calendar.registerDizzy(this.calendarFirst._id, this.calendarFirst)
+    .subscribe(
+      res => {
+        console.log("SUCCESS");
+        console.log(this.calendarFirst);
+      },
+      err => console.log(err)
+    );
+    this.isVisible = false
   }
 
   setRangeValue(e: boolean) {
@@ -112,7 +124,8 @@ export class HomeComponent implements OnInit {
   getUser() {
     this.authenticationService.getUser().subscribe(
       res => {
-        this.user.username = res.username;
+        this.user = res;
+
         console.log(res.username);
       },
       err => console.log(err)

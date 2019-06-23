@@ -174,6 +174,35 @@
     </div>
   </div>
 
+  <div class="w-full h-20" [style.display]="isVisible ? 'block' : 'none'">
+      <div class="p-6">
+          <form method="POST" class="mb-" action="#" onsubmit="return false;">
+            <div class="mb-10">
+              <input
+                required
+                type="text"
+                [(ngModel)]="painscale"
+                name="painscale"
+                id="painscale"
+                class="block w-full p-3 rounded-full  border border-black focus:outline-none"
+                placeholder="Enter number from 1 to 10"
+              />
+
+            </div>
+
+            <button
+              type="button"
+              (click)="submitDizziness()"
+              class="w-full p-3 mt-4 bg-red-500 text-white rounded-full shadow"
+            >
+              Submit
+            </button>
+          </form>
+
+        </div>
+    <!-- <button (click)="submitDizziness()">Submit</button> -->
+  </div>
+
   <!-- update goal -->
   <div class="flex w-11/12 mx-auto rounded shadow bg-white mb-24 leading-tight">
     <div class="p-4 w-full flex">
