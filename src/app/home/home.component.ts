@@ -25,6 +25,20 @@ export class HomeComponent implements OnInit {
   };
   isVisible: boolean = false;
 
+  feedbackDisplayedImg: string = "../../assets/feedbackIcons/1.png";
+  FeedbackImages = [
+    { url: "../../assets/feedbackIcons/1.png" },
+    { url: "../../assets/feedbackIcons/2.png" },
+    { url: "../../assets/feedbackIcons/3.png" },
+    { url: "../../assets/feedbackIcons/4.png" },
+    { url: "../../assets/feedbackIcons/5.png" },
+    { url: "../../assets/feedbackIcons/6.png" },
+    { url: "../../assets/feedbackIcons/7.png" },
+    { url: "../../assets/feedbackIcons/8.png" },
+    { url: "../../assets/feedbackIcons/9.png" },
+    { url: "../../assets/feedbackIcons/10.png" }
+  ];
+
   constructor(
     private authenticationService: AuthenticationService,
     private _exercise: ExerciseService,
@@ -41,28 +55,50 @@ export class HomeComponent implements OnInit {
     // this.getExerciseById(id)
   }
 
-
-  submitDizziness(){
-
-    this.isVisible = false
+  submitDizziness() {
+    this.isVisible = false;
   }
 
+  setRangeValue(e: boolean) {
+    let feedbackValue = (<HTMLInputElement>document.getElementById("myRange"))
+      .value;
+    if (feedbackValue == "2") {
+      this.feedbackDisplayedImg = this.FeedbackImages[1].url;
+    } else if (feedbackValue == "3") {
+      this.feedbackDisplayedImg = this.FeedbackImages[2].url;
+    } else if (feedbackValue == "4") {
+      this.feedbackDisplayedImg = this.FeedbackImages[3].url;
+    } else if (feedbackValue == "5") {
+      this.feedbackDisplayedImg = this.FeedbackImages[4].url;
+    } else if (feedbackValue == "6") {
+      this.feedbackDisplayedImg = this.FeedbackImages[5].url;
+    } else if (feedbackValue == "7") {
+      this.feedbackDisplayedImg = this.FeedbackImages[6].url;
+    } else if (feedbackValue == "8") {
+      this.feedbackDisplayedImg = this.FeedbackImages[7].url;
+    } else if (feedbackValue == "9") {
+      this.feedbackDisplayedImg = this.FeedbackImages[8].url;
+    } else if (feedbackValue == "10") {
+      this.feedbackDisplayedImg = this.FeedbackImages[9].url;
+    } else {
+      this.feedbackDisplayedImg = this.FeedbackImages[0].url;
+    }
+  }
 
-  checkFeedback(e:boolean) {
-    e=!e;
+  checkFeedback(e: boolean) {
+    e = !e;
     let temp = true;
 
     this.calendarFirst.exercisedailydiaries.forEach(ex => {
       // console.log(ex.done);
       // console.log("sdfoghjdfhjg");
-      
+
       if (ex.done == false) {
         temp = false;
         console.log(ex.done);
       }
       return temp;
     });
-
 
     if (temp) {
       console.log("ready");
@@ -72,7 +108,6 @@ export class HomeComponent implements OnInit {
       console.log("not ready");
     }
   }
-
 
   getUser() {
     this.authenticationService.getUser().subscribe(
